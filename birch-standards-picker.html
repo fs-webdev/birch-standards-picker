@@ -509,22 +509,24 @@ The following custom properties and mixins are available for styling:
       },
 
       _handleDataChange: function(data) {
-        // If customText matches standardText exactly,
-        // delete customText and run this function again.
-        if(data.customText === data.standardText){
-          delete data.customText;
-          this._updateData(this._clone(data));
-          return this._handleDataChange(this.data);
-        }
-
         if(!this.searchTerm && (data.customText || data.standardText)){
           this.searchTerm = data.customText || data.standardText;
+
           if(!data.label){
             var clonedData = this._clone(this.data);
             clonedData.label = clonedData.standardText || undefined;
             this._updateData(clonedData);
             this._handleDataChange(this.data);
           }
+
+          // If customText matches standardText exactly,
+          // delete customText and run this function again.
+          if(data.customText === data.standardText){
+            delete data.customText;
+            this._updateData(this._clone(data));
+            this._handleDataChange(this.data);
+          }
+
           var fakeEvent = {
             detail: {
               value: this.searchTerm
