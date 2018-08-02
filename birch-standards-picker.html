@@ -527,6 +527,8 @@ The following custom properties and mixins are available for styling:
             this._handleDataChange(this.data);
           }
 
+          // Must trigger the input handler so that standards
+          // will get fetched even though the user has not typed.
           var fakeEvent = {
             detail: {
               value: this.searchTerm
