@@ -493,7 +493,6 @@ The following custom properties and mixins are available for styling:
         this.$.typeahead.hideOptionsAndBlur(false);
         this._showNonStandardSelectedIndicator = false;
         this._hideStandards = true;
-        this.hideStandardsMenu = true;
         this.loading = false;
       },
 
@@ -732,7 +731,6 @@ The following custom properties and mixins are available for styling:
         this._updateData(e.detail.selection);
         this.$.optionsMenu.select(0);
         this._setStandardSelected(e.detail.selection);
-        if(!this.standardSelected) this.hideStandardsMenu = false;
         this._setShowNonStandardSelectedIndicator(this.data, this.searchTerm, this._standardOptions);
       },
 
