@@ -688,7 +688,8 @@ The following custom properties and mixins are available for styling:
         }
         options = options.map(this._mapOptionsCB.bind(this));
         this._standardOptions = [].concat(options);
-        this._typeaheadOptions = this._setupTypeaheadOptions([].concat(options));
+        // Don't add anything to the response if customUrl is set
+        this._typeaheadOptions = this.customUrl ? options : this._setupTypeaheadOptions([].concat(options));
         if(isProgramaticFetch === true){
           this.$.typeahead.hideOptions();
           if(!this.standardSelected && this.data.standardText){
