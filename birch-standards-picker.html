@@ -475,6 +475,16 @@ The following custom properties and mixins are available for styling:
           value: ''
         },
 
+        /**
+         * Specifies whether or not to hide the standards status container
+         *
+         * @type {Boolean}
+         */
+        hideStatusContainer: {
+          type: Boolean,
+          value: false
+        },
+
         _typeaheadOptions: {
           type: Array,
           value: function() { return []; }
@@ -923,6 +933,10 @@ The following custom properties and mixins are available for styling:
 
       // searchTerm is passed here simply to trigger this observer
       _showStandardSelectedIndicator: function(data, searchTerm) {
+        if (this.hideStatusContainer) {
+          return false;
+        }
+
         return data.standardText;
       },
 
