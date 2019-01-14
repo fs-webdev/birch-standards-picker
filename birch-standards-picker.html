@@ -727,32 +727,32 @@ The following custom properties and mixins are available for styling:
         return string;
       },
 
-      _handleInput: function(e, isProgramaticFetch) {
+      _handleInput: function(e, isProgrammaticFetch) {
         if(!e || !e.detail || !e.detail.value){
           this._cancelActiveRequest();
           this.loading = false;
           return this.reset();
         }
-        if(isProgramaticFetch !== true) this.standardSelected = false;
+        if(isProgrammaticFetch !== true) this.standardSelected = false;
         if(!e.detail.value.trim()) return;
         this.loading = true;
-        this._fetchData(e.detail.value, isProgramaticFetch);
+        this._fetchData(e.detail.value, isProgrammaticFetch);
       },
 
-      _fetchData: function(term, isProgramaticFetch) {
+      _fetchData: function(term, isProgrammaticFetch) {
         var self = this;
         var url = (self.customUrl || '/tree-data/authorities/') + this.standardType + '?term=' + encodeURIComponent(term) + '&locale=' + this.lang;
         this._req('GET', url).then(function (data){
-          self._handleResponse(data, isProgramaticFetch);
+          self._handleResponse(data, isProgrammaticFetch);
         }).catch(function (err){
           if(err.aborted) return;
-          self._handleResponse([], isProgramaticFetch);
+          self._handleResponse([], isProgrammaticFetch);
           self.fire('birch-standards-picker:error', err);
           console.error('birch-standards-picker:error', err);
         });
       },
 
-      _handleResponse: function(options, isProgramaticFetch) {
+      _handleResponse: function(options, isProgrammaticFetch) {
         this.loading = false;
         if(!options || !Array.isArray(options)){
           options = [];
@@ -782,7 +782,7 @@ The following custom properties and mixins are available for styling:
         options = options.map(this._mapOptionsCB.bind(this));
         this._standardOptions = [].concat(options);
         this._typeaheadOptions = this._setupTypeaheadOptions([].concat(options));
-        if(isProgramaticFetch === true){
+        if(isProgrammaticFetch === true){
           this.$.typeahead.hideOptions();
           if(!this.standardSelected && this.data.standardText){
             this._selectStandardOptionByStandardizedText(this.data.standardText);
