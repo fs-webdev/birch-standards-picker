@@ -21,7 +21,7 @@
   "devDependencies": {
     "eslint-config-frontier": "github:fs-webdev/eslint-config-frontier",
     "eslint-config-tree": "github:fs-webdev/eslint-config-tree#semver:^1",
-    "fs-common-build-scripts": "github:fs-webdev/fs-common-build-scripts#semver:^1",
+    "fs-common-build-scripts": "github:fs-webdev/fs-common-build-scripts#semver:^2",
     "husky": "^2"
   },
   "husky": {
