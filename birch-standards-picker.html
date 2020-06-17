@@ -801,12 +801,17 @@ The following custom properties and mixins are available for styling:
               return;
             }
 
+            // we use the scrollHeight here because the typeahead menu is technically outside the typeahead's height because typeahead has overflow:hidden
             let bottomOfTypeahead = typeahead.offsetTop + typeahead.scrollHeight;
             let lastVisiblePixelInParent = offsetParent.scrollTop + offsetParent.clientHeight;
 
             if (bottomOfTypeahead > lastVisiblePixelInParent) {
               // scrolling is needed, so let's scroll :)
               let scrollAmount = bottomOfTypeahead - lastVisiblePixelInParent;
+              if (typeahead.scrollHeight > offsetParent.clientHeight) {
+                // only scroll to the input top since the screen is shorter than the height of the typeahead.
+                scrollAmount = typeahead.offsetTop - offsetParent.scrollTop;
+              }
               offsetParent.scrollBy({top: scrollAmount, behavior: 'smooth'});
             }
           }, 0);
