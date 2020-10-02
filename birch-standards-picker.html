@@ -792,6 +792,24 @@ The following custom properties and mixins are available for styling:
         if (_isDate && _showThinDate) return 'max-height: 50px; font-weight: 100;';
       },
 
+      _getComplexString: function (type, i18n) {
+        if (!i18n) return;
+        switch (type) {
+          case 'date':
+            return i18n('HELPLET_DATE', 'title', i18n('HELPLET_DATE_LEARN_MORE_TEXT'), 'text', i18n('HELPLET_DATE_LEARN_WHAT_TEXT'));
+            break;
+          case 'place':
+            return i18n('HELPLET_PLACE', 'title', i18n('HELPLET_PLACE_LEARN_MORE_TEXT'), 'text', i18n('HELPLET_PLACE_LEARN_HOW_TEXT'));
+            break;
+          case 'standardizedDate':
+            return i18n('HELPLET_STANDARDIZED_DATE', 'title', i18n('HELPLET_PLACE_LEARN_MORE_TEXT'), 'text', i18n('HELPLET_PLACE_LEARN_HOW_TEXT'));
+            break;
+          case 'standardizedPlace':
+            return i18n('HELPLET_STANDARDIZED_PLACE', 'title', i18n('HELPLET_PLACE_LEARN_MORE_TEXT'), 'text', i18n('HELPLET_PLACE_LEARN_HOW_TEXT'));
+            break;
+        }
+      },
+
       _updateLabels: function (i18n, standardType, inputLabel) {
         if (!i18n) return;
         this.standardsDropdownLabel = this.i18n('STANDARD_' + this.standardType.toUpperCase() + '_LABEL');
