@@ -1,6 +1,6 @@
 {
   "PLACE_PLACEHOLDER": "장소 입력.",
-  "DATE_PLACEHOLDER": "날짜 입력.",
+  "DATE_PLACEHOLDER": "날짜 입력",
   "NO_STANDARD_DATE_AVAILABLE": "표준화되지 않은 날짜",
   "NO_STANDARD_PLACE_AVAILABLE": "표준화되지 않은 장소",
   "NO_STANDARD_SELECTED": "표준이 선택되지 않았습니다.",
